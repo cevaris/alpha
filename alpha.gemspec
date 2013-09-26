@@ -6,8 +6,8 @@ require 'alpha/version'
 Gem::Specification.new do |spec|
   spec.name          = "alpha"
   spec.version       = Alpha::VERSION
-  spec.authors       = ["James Kobol"]
-  spec.email         = ["jim.kobol@gmail.com"]
+  spec.authors       = ["Cevaris"]
+  spec.email         = ["cevaris@gmail.com"]
   spec.description   = %q{Alpha is a CLI that allows development and deployment of distributed systems}
   spec.summary       = spec.description
   spec.homepage      = ""
