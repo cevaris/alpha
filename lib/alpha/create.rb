@@ -1,3 +1,9 @@
 module Alpha
-	CREATE = 'You gots it man'
+	
+	class Create
+		def exec
+			'You gots it man'
+		end
+	end
+	
 end

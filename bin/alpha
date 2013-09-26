@@ -2,9 +2,9 @@
 
 require 'rubygems'
 require 'commander/import'
-require 'alpha/alpha'
+require '../lib/alpha'
 	
-program :version, Alpha::VERSION
+program :version, '0.0.1'
 program :description, ''
  
 command :create do |c|
@@ -15,7 +15,6 @@ command :create do |c|
   c.option '--some-switch', 'Some switch that does something'
   c.action do |args, options|
     # Do something or c.when_called Alpha::Commands::Create
-    p Alpha::Version
-
+    p 'Create'
   end
 end
