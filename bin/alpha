@@ -2,9 +2,10 @@
 
 require 'rubygems'
 require 'commander/import'
-	
+require 'alpha'
+
 program :version, '0.0.1'
-program :description, ''
+program :description, 'Distributed App Manager'
  
 command :create do |c|
   c.syntax = 'Alpha create [options]'
@@ -14,6 +15,8 @@ command :create do |c|
   c.option '--some-switch', 'Some switch that does something'
   c.action do |args, options|
     # Do something or c.when_called Alpha::Commands::Create
-    p 'Create'
+    command = Alpha::Create.new
+    p command.exec()
   end
 end
+
