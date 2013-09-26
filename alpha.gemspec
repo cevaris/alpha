@@ -25,4 +25,3 @@ end
 
 
 
-Bundler.require(:default, :development)

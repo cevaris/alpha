@@ -2,7 +2,6 @@
 
 require 'rubygems'
 require 'commander/import'
-require '../lib/alpha'
 	
 program :version, '0.0.1'
 program :description, ''

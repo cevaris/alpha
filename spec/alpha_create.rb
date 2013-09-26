@@ -1,10 +1,12 @@
 require 'alpha'
+require 'alpha/create'
 
-describe Alhpa::Create do
+describe Alpha::Create do
   
-  # it "create command does something " do
-  #   command = Alhpa::Create.new
-  #   command.exec() != nil
-  # end
+  it "create command does something " do
+    command = Alpha::Create.new
+    p command.exec()
+    command.exec() != nil
+  end
 
 end
