@@ -1,7 +1,4 @@
-# nodes:
-# 	ipaddress: 192.168.1.100
-# 	ipaddress: 192.168.1.101
-# 	ipaddress: 192.168.1.102
-database:
-  # the name of your JDBC driver
-  driverClass: org.h2.Driver
+nodes:
+  - ipaddress: 192.168.1.100
+  - ipaddress: 192.168.1.101
+  - ipaddress: 192.168.1.102
