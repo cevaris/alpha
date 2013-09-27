@@ -7,12 +7,14 @@ module Alpha
 	
 	class Runner
 
-		CONFIG_PATH = 'test/config/config.yaml'
+		def self.config_path
+			'test/config/config.yaml'
+		end
 
 		attr_accessor :config
 
 		def initialize
-			@config = Config.new CONFIG_PATH
+			@config = Config.new self.config_path
 	  end		
 
 	  def execute_on_node( ip_address, command )

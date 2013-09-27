@@ -2,8 +2,6 @@ module Alpha
 	
 	class Config
 
-		
-		
 		attr_accessor :config_data
 
 		def initialize( path )

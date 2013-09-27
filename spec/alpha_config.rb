@@ -1,11 +1,11 @@
 require 'alpha'
 
-describe Alpha::Create do
+describe Alpha::Config do
 
 	INVALID_CONFIG_PATH = 'config/invalid-config.yaml'
 	
 	before :each do 
-		@config = Alpha::Config.new CONFIG_PATH
+		@config = Alpha::Config.new Alpha::Runner.config_path
 	end
   
   it 'cannot find config file did not throw error' do
