@@ -15,27 +15,18 @@ module Alpha
 			@config = Config.new CONFIG_PATH
 	  end		
 
-	  def execute_on_node( node, command )
-	  	p "ssh root@#{node} #{command} #{port_open?(node,22)}"
-	  end
-	  
-	end # Runner
+	  def execute_on_node( ip_address, command )
+	  	# p "ssh root@#{ip_address} #{command} #{port_open?(ip_address,22)}"
 
+	  	if port_open?(ip_address, 22)
+	  		IO.popen("ssh root@#{ip_address} #{command}") { |f|
+			    until f.eof?
+			      p f.gets
+			    end
+			  }
 
-
-
-
-
-	class Ping < Runner
-
-		def initialize
-			@runner = Runner.new
-	  end		
-
-	  def exec
-	  	@runner.config.nodes.each do |node|
-	  		self.execute_on_node node['ip_address'], 'ls -l'
 	  	end
+
 	  end
 
 	  def port_open?( ip, port )
@@ -56,6 +47,26 @@ module Alpha
 
 	  end
 
+	  
+	end # Runner
+
+
+
+
+
+
+	class Ping < Runner
+
+		def initialize
+			@runner = Runner.new
+	  end		
+
+	  def exec
+	  	@runner.config.nodes.each do |node|
+	  		self.execute_on_node node['ip_address'], 'apt-get update'
+	  	end
+	  end
+	  
 	end # Ping
 
 
