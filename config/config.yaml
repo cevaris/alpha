@@ -1,4 +1,4 @@
 nodes:
-  - ipaddress: 192.168.1.100
-  - ipaddress: 192.168.1.101
-  - ipaddress: 192.168.1.102
+  - ip_address: 192.168.1.100
+  - ip_address: 192.168.1.101
+  - ip_address: 192.168.1.102
