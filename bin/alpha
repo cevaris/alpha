@@ -14,9 +14,18 @@ command :create do |c|
   c.example 'description', 'command example'
   c.option '--some-switch', 'Some switch that does something'
   c.action do |args, options|
-    # Do something or c.when_called Alpha::Commands::Create
-    command = Alpha::Create.new
-    p command.exec()
+    p 'create'
+  end
+end
+
+command :ping do |c|
+  c.syntax = 'Alpha ping [options]'
+  c.summary = ''
+  c.description = ''
+  c.example 'description', 'command example'
+  c.option '--some-switch', 'Some switch that does something'
+  c.action do |args, options|
+    p 'ping'
   end
 end
 
