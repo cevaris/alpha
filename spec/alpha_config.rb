@@ -1,9 +1,12 @@
 require 'alpha'
 
 describe Alpha::Create do
+
+	CONFIG_PATH = 'config/config.yaml'
+	INVALID_CONFIG_PATH = 'config/invalid-config.yaml'
+	
 	before :each do 
-		@path = Alpha::Config::CONFIG_PATH
-		@config = Alpha::Config.new
+		@config = Alpha::Config.new CONFIG_PATH
 	end
   
   it 'cannot find config file did not throw error' do
@@ -15,9 +18,9 @@ describe Alpha::Create do
     @config.config_data.should_not eq( nil )
   end
 
-  it 'did not raise ConfigNotFound' do
+  it 'did not raise error with empty config' do
+  	@config = Alpha::Config.new INVALID_CONFIG_PATH
   	expect { @config.validate }.to raise_error
-    
   end
 
 end

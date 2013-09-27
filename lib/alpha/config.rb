@@ -1,14 +1,13 @@
 module Alpha
 	class Config
 
-		CONFIG_PATH = 'config/config.yaml'
-
 		attr_accessor :config_data
 
-		def initialize( path=CONFIG_PATH )
+		def initialize( path )
 			@config_path = path
 
 			load( )
+			validate( )
 	  end		
 
 		
@@ -18,8 +17,10 @@ module Alpha
 		end
 
 		def validate
-			# raise ConfigNotFound, 'Configuration is nil', @config == nil
-			raise 'ConfigNotFound'
+			raise ConfigNotValid unless @config_data
+			raise NodeConfigNotFound unless @config_data.has_key? 'nodes'
+			# raise NodeConfigNotFound unless @config_data['nodes'].has_key? 'ip_address'
+
 		end
 
 	end
