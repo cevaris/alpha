@@ -1,5 +1,5 @@
 require "alpha/version"
 require "alpha/config"
 require "alpha/errors"
-require "alpha/install_manager"
+require "alpha/installer"
 require "alpha/runner"

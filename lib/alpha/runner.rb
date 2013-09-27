@@ -7,7 +7,7 @@ module Alpha
 	
 	class Runner
 
-		CONFIG_PATH = 'config/config.yaml'
+		CONFIG_PATH = 'test/config/config.yaml'
 
 		attr_accessor :config
 
@@ -19,12 +19,13 @@ module Alpha
 	  	# p "ssh root@#{ip_address} #{command} #{port_open?(ip_address,22)}"
 
 	  	if port_open?(ip_address, 22)
-	  		IO.popen("ssh root@#{ip_address} #{command}") { |f|
+	  		IO.popen("ssh root@#{ip_address} #{command}") do |f|
 			    until f.eof?
 			      p f.gets
 			    end
-			  }
-
+			  end
+			else
+				raise NodeHeartbeatNotFound, "Heartbeat not found for #{ip_address}"
 	  	end
 
 	  end
@@ -63,7 +64,7 @@ module Alpha
 
 	  def exec
 	  	@runner.config.nodes.each do |node|
-	  		self.execute_on_node node['ip_address'], 'apt-get update'
+	  		self.execute_on_node node['ip_address'], 'ls -l /'
 	  	end
 	  end
 	  
